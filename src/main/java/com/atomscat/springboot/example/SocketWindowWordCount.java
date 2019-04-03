@@ -2,8 +2,6 @@ package com.atomscat.springboot.example;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
-
-import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.time.Time;
@@ -59,7 +57,8 @@ public class SocketWindowWordCount {
         public String word;
         public long count;
 
-        public WordWithCount() {}
+        public WordWithCount() {
+        }
 
         public WordWithCount(String word, long count) {
             this.word = word;
