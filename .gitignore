@@ -12,8 +12,7 @@
 
 ### IntelliJ IDEA ###
 .idea
-.idea/vcs.xml
-
+.idea/*.xml
 *.iws
 *.iml
 *.ipr
