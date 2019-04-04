@@ -1,10 +1,19 @@
 package com.atomscat.springboot.example;
 
+import breeze.optimize.linear.CompetitiveLinking;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.common.io.FileInputFormat;
+import org.apache.flink.api.java.DataSet;
+import org.apache.flink.api.java.io.CsvInputFormat;
+import org.apache.flink.api.java.io.RowCsvInputFormat;
+import org.apache.flink.ml.common.ParameterMap;
+import org.apache.flink.ml.recommendation.ALS;
 import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.types.Row;
 import org.apache.flink.util.Collector;
 
 public class SocketWindowWordCount {
@@ -49,6 +58,19 @@ public class SocketWindowWordCount {
         windowCounts.print().setParallelism(1);
 
         env.execute("Socket Window WordCount");
+
+        // #====== ALS start =======#
+//        ALS als = new ALS();
+//        als.setIterations(10).setNumFactors(10).setBlocks(100);
+//        ParameterMap parameterMap = new ParameterMap();
+//        parameterMap.add(ALS.Lambda$.MODULE$, 0.9).add(ALS.Seed$.MODULE$, 42L);
+
+
+
+        //DataSet<CompetitiveLinking.Prediction> predictionDataSet = als.predict()
+
+        // #====== ALS end =======#
+
     }
 
     // Data type for words with count
